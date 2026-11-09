@@ -1,5 +1,6 @@
 import { Property } from '@/data/properties'
 import PropertyImageBadges from './PropertyImageBadges'
+import PropertyConcessionNote from './PropertyConcessionNote'
 
 interface PropertyHeroProps {
   property: Property
@@ -29,15 +30,18 @@ export default function PropertyHero({ property, heroImage }: PropertyHeroProps)
           <p className="text-xl md:text-2xl text-white mb-4">
             {property.city}, {property.state} {property.zipCode}
           </p>
-          <div className="mb-6 flex items-baseline justify-center gap-3">
-            <div className="text-3xl md:text-4xl font-bold text-gold-400">
-              ${property.price?.toLocaleString()}
-            </div>
-            {property.id === '112-winchester' && (
-              <div className="text-lg md:text-xl text-white/70 line-through">
-                $934,900
+          <div className="mb-6">
+            <div className="flex items-baseline justify-center gap-3">
+              <div className="text-3xl md:text-4xl font-bold text-gold-400">
+                ${property.price?.toLocaleString()}
               </div>
-            )}
+              {property.id === '112-winchester' && (
+                <div className="text-lg md:text-xl text-white/70 line-through">
+                  $934,900
+                </div>
+              )}
+            </div>
+            <PropertyConcessionNote text={property.priceConcessionText} variant="hero" />
           </div>
           {property.classification === 'home' ? (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">

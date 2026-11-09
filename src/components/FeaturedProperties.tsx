@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getFeaturedProperties } from '@/data/properties'
 import PropertyImageBadges from './PropertyImageBadges'
+import PropertyConcessionNote from './PropertyConcessionNote'
 
 const properties = getFeaturedProperties()
 
@@ -39,6 +40,11 @@ export default function FeaturedProperties() {
                     {property.price ? `$${property.price.toLocaleString()}` : 'Sold'}
                   </span>
                 </div>
+                {property.priceConcessionText && (
+                  <div className="mb-2 text-right">
+                    <PropertyConcessionNote text={property.priceConcessionText} />
+                  </div>
+                )}
                 <p className="text-charcoal-600 mb-4">{property.city}, {property.state}</p>
                 {property.status === "Sold" && !property.gallery?.length ? (
                   <div className="text-sm text-charcoal-500 mb-4">

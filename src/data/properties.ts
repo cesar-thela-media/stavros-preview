@@ -22,6 +22,8 @@ export interface Property {
   image: string
   featured: boolean
   imageRibbonText?: string
+  /** Seller concession shown as a note under the listing price */
+  priceConcessionText?: string
   // Detail page fields
   propertyId?: string
   similarListings?: string[]
@@ -193,7 +195,7 @@ const properties: Property[] = [
     city: 'Austin',
     state: 'TX',
     zipCode: '78748',
-    price: 845900,
+    price: 824900,
     builder: 'Resale',
     status: 'Available',
     completionDate: '1984',
@@ -208,6 +210,7 @@ const properties: Property[] = [
     image: '/listings/11006-brodie/gallery/11006-brodie-01.jpg',
     featured: true,
     imageRibbonText: 'Price improvement',
+    priceConcessionText: 'Seller Offering $15K Concession to Buyer',
     gallery: [
       "/listings/11006-brodie/gallery/11006-brodie-01.jpg",
       "/listings/11006-brodie/gallery/11006-brodie-02.jpg",
@@ -276,7 +279,7 @@ const properties: Property[] = [
     city: 'Kyle',
     state: 'TX',
     zipCode: '78640',
-    price: 309900,
+    price: 309500,
     builder: 'Resale',
     status: 'Available',
     completionDate: null,
@@ -291,6 +294,7 @@ const properties: Property[] = [
     image: '/listings/145-paddington/gallery/145-paddington-01.jpg',
     featured: true,
     imageRibbonText: 'Price improvement',
+    priceConcessionText: 'Seller Offering 3% Concession to Buyer',
     gallery: [
       "/listings/145-paddington/gallery/145-paddington-01.jpg",
       "/listings/145-paddington/gallery/145-paddington-02.jpg",
@@ -453,7 +457,7 @@ const properties: Property[] = [
     zipCode: '78640',
     price: 339950,
     builder: 'Resale',
-    status: 'Pending Sale',
+    status: 'Sold',
     completionDate: '2002',
     classification: 'home',
     squareFootage: 2470,

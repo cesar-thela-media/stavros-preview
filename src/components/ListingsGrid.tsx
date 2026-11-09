@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Property } from '@/data/properties'
 import PropertyImageBadges from './PropertyImageBadges'
+import PropertyConcessionNote from './PropertyConcessionNote'
 
 type StatusFilter = 'all' | 'available' | 'sold' | 'under-construction' | 'pending'
 type BedsFilter = 'any' | '2+' | '3+' | '4+'
@@ -269,9 +270,14 @@ export default function ListingsGrid({ properties }: ListingsGridProps) {
                   <p className="text-primary-600 mb-2">
                     {property.city}, {property.state} {property.zipCode}
                   </p>
-                  <p className="text-2xl font-bold text-gold-700 mb-4">
+                  <p className={`text-2xl font-bold text-gold-700 ${property.priceConcessionText ? 'mb-2' : 'mb-4'}`}>
                     {property.price ? `$${property.price.toLocaleString()}` : 'Price upon request'}
                   </p>
+                  {property.priceConcessionText && (
+                    <div className="mb-4">
+                      <PropertyConcessionNote text={property.priceConcessionText} />
+                    </div>
+                  )}
 
                   {property.classification === 'home' ? (
                     <div className="grid grid-cols-3 gap-4 mb-4 text-center">
